@@ -1,0 +1,27 @@
+[
+  {
+    "nombre": "Computadores",
+    "descripcion": "Equipos de alto rendimiento para trabajo y estudio",
+    "imagen": "img/computadores.png"
+  },
+  {
+    "nombre": "Celulares",
+    "descripcion": "Tecnología móvil para tu día a día",
+    "imagen": "img/celular.png"
+  },
+  {
+    "nombre": "Tablets",
+    "descripcion": "Versatilidad y potencia en cualquier lugar",
+    "imagen": "img/tablet.png"
+  },
+  {
+    "nombre": "Accesorios",
+    "descripcion": "Potencia tu tecnología con accesorios modernos",
+    "imagen": "img/accesorios.png"
+  },
+  {
+    "nombre": "Periféricos",
+    "descripcion": "Mejora tu experiencia con alto rendimiento",
+    "imagen": "img/perifericos.png"
+  }
+]
