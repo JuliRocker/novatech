@@ -8,17 +8,16 @@
 <body>
 
   <!-- HEADER -->
-  <header>
-   <header class="navbar">
+    <header class="navbar">
 
   <div class="logo">
     <img src="img/logo.png" alt="NovaTech">
   </div>
 
   <nav class="menu">
-    <a href="#">Inicio</a>
-    <a href="#">Productos</a>
-    <a href="#">Ofertas</a>
+  <a href="#">Inicio</a>
+  <a href="#productos">Productos</a>
+    <a href="favoritos.html">Favoritos <span id="fav-count" class="fav-count">0</span></a>
     <a href="#">Contacto</a>
     <a href="#">¿Quienes somos?</a>
 
@@ -41,21 +40,22 @@
   <div class="hero-content">  <!--Banner-->
     <h1>Encuentra productos tecnológicos en un solo lugar</h1>
     <p>Explora soluciones digitales, rápidas, seguras y confiables para tus necesidades.</p>
-    <button>Explorar productos</button>
+  <button onclick="document.getElementById('productos').scrollIntoView({behavior: 'smooth'})">Explorar productos</button>
   </div>
 </section>
   <!-- SECCIÓN PRINCIPAL -->
   <section>
     <h2>Productos destacados</h2>
-    <p class="subtitulo"> escubre nuestros productos más populares para tus necesidades tecnológicas </p>
+    <p class="subtitulo"> Descubre nuestros productos más populares para tus necesidades tecnológicas </p>
   </section>
 
   <!-- CONTENEDOR DE PRODUCTOS -->
   <section id="productos"></section>
 
   <script src="js/script.js"></script>
-</body>
-<footer class="footer">
+  <div id="toast-container"></div>
+
+  <footer class="footer">
 
   <div class="footer-contenido">
 
