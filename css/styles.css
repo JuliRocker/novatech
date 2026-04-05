@@ -1,107 +1,14 @@
-/* styles.css */
-.hero {
-  background: url("../img/banner.jpg") no-repeat center;
-  background-size: cover;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  padding-left: 50px;
-  color: white;
-  position: relative;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* oscurece imagen */
-  top: 0;
-  left: 0;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 1;
-  max-width: 800px;
-}
-
-.hero h1 {
-  font-size: 40px;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 16px;
-  margin-bottom: 15px;
-}
-
-.hero button {
-  text-align: center;
-  max-width: 760px;
-  margin: 40px auto;
-  font-size: 18px;
-  background-color: #1E5DA8;
-  border: none;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-}
+/* ===== GENERALES ===== */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 
-header {
-  background-color: #f5f5f5;
-  color: rgb(10, 10, 10);
-  text-align: center;
-  padding: 10px;
-}
-
 h2 {
   text-align: center;
 }
 
-#productos {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  padding: 20px;
-}
-
-.card {
-  border: 1px solid #290cce;
-  border-radius: 10px;
-  width: 200px;
-  padding: 10px;
-  text-align: center;
-  background: rgba(27, 101, 185, 0.911);
-  color: #ffffff;
-}
-
-.card img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-button {
-  margin-top: 10px;
-  padding: 5px 10px;
-  border: none;
-  background-color: #1E5DA8;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #154a87;
-}
 .subtitulo {
   text-align: center;
   color: #666;
@@ -109,210 +16,79 @@ button:hover {
   margin-top: -10px;
   margin-bottom: 20px;
 }
-.buscador {
-  display: flex;
-  justify-content: center;
-  margin: 30px 0;
-}
 
-.buscador input {
-  width: 350px;
-  padding: 12px;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  outline: none;
-  background-color: #f5f5f5;
-}
-
-
+/* ===== NAVBAR ===== */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 4px 20px;
+  padding: 8px 20px;
   background: #fafafa;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .logo img {
-  width: 240px;
+  width: 200px;
 }
 
-/* MENÚ */
 .menu a {
-  margin: 0 15px;
+  margin: 0 10px;
   text-decoration: none;
   color: #333;
   font-weight: 500;
 }
 
 .menu a:hover {
-  color: #000000;
+  color: #000;
 }
 
-/* Badge for favorites count */
-.fav-count {
-  display: inline-block;
-  background: #ff3b30;
-  color: #fff;
-  padding: 2px 8px;
-  border-radius: 12px;
-  font-size: 12px;
-  margin-left: 6px;
-  vertical-align: middle;
-}
-
-/* Toast notifications */
-#toast-container {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  z-index: 9999;
-}
-.toast {
-  background: rgba(0,0,0,0.85);
-  color: #fff;
-  padding: 10px 14px;
-  margin-top: 8px;
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 240ms ease, transform 240ms ease;
-  max-width: 320px;
-}
-.toast.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.card-buttons {
+/* ===== BUSCADOR ===== */
+.buscador {
   display: flex;
-  gap: 8px;
   justify-content: center;
 }
 
-/* Primary button used in favoritos when empty */
-.btn-primary {
-  background-color: #1E5DA8;
-  color: #fff;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-.btn-primary:hover {
-  background-color: #154a87;
+.buscador input {
+  width: 300px;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
 }
 
-/* ACCIONES */
+/* ===== ACCIONES ===== */
 .acciones {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 }
 
 .btn-login {
-  padding: 6px 15px;
-  border: 2px solid #000000;
-  background: transparent;
-  color: #000000;
+  padding: 6px 12px;
+  border: 2px solid #050505;
+  background:#000 ;
   border-radius: 5px;
-  cursor: pointer;
+  cursor:pointer;
 }
 
 .btn-login:hover {
-  background: #0c0c0c;
-  color: #1E5DA8;
+  background: #000;
+  color: white;
 }
 
 .carrito {
   font-size: 22px;
   cursor: pointer;
 }
-.footer {
-  background: #ffffff;
-  color: rgb(0, 0, 0);
-  padding: 40px 20px 20px;
-  margin-top: 40px;
-}
 
-.footer-contenido {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-
-.footer h4 {
-  margin-bottom: 10px;
-}
-
-.footer a {
-  display: block;
-  color: #070707;
-  text-decoration: none;
-  margin-bottom: 5px;
-}
-
-.footer a:hover {
-  color: white;
-}
-
-.footer-copy {
-  text-align: center;
-  margin-top: 20px;
-  border-top: 1px solid #333;
-  padding-top: 10px;
-  font-size: 14px;
-}
-/* Center empty favorites state */
-.no-favoritos {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  max-width: 760px;
-  margin: 40px auto;
-  gap: 12px;
-  padding: 20px;
-}
-.no-favoritos p {
-  margin: 0;
-  line-height: 1.4;
-}
-.no-favoritos .btn-primary {
-  margin-top: 8px;
-}
-
-/* Favorite button state */
-.fav-btn {
-  background-color: #1E5DA8;
-  color: #fff;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-.fav-btn .heart {
-  margin-right: 6px;
-}
-.fav-btn.favorited {
-  background-color: #28a745; /* green */
-  box-shadow: 0 2px 6px rgba(40,167,69,0.2);
-}
-.fav-btn.favorited:hover {
-  background-color: #218838;
-}
-
+/* ===== HERO ===== */
 .hero {
   background: url("../img/banner.jpg") no-repeat center;
   background-size: cover;
   height: 400px;
   display: flex;
   align-items: center;
-  padding-left: 50px;
+  padding-left: 40px;
   color: white;
   position: relative;
 }
@@ -322,7 +98,7 @@ button:hover {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.4); /* oscurece imagen */
+  background: rgba(0,0,0,0.4);
   top: 0;
   left: 0;
 }
@@ -330,19 +106,15 @@ button:hover {
 .hero-content {
   position: relative;
   z-index: 1;
-}
-.hero-content {
-  max-width: 800px;
+  max-width: 600px;
 }
 
 .hero h1 {
-  font-size: 40px;
-  margin-bottom: 10px;
+  font-size: 36px;
 }
 
 .hero p {
   font-size: 16px;
-  margin-bottom: 15px;
 }
 
 .hero button {
@@ -353,23 +125,8 @@ button:hover {
   border-radius: 5px;
   cursor: pointer;
 }
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
 
-header {
-  background-color: #f5f5f5;
-  color: rgb(10, 10, 10);
-  text-align: center;
-  padding: 10px;
-}
-
-h2 {
-  text-align: center;
-}
-
+/* ===== PRODUCTOS ===== */
 #productos {
   display: flex;
   justify-content: center;
@@ -384,19 +141,22 @@ h2 {
   width: 200px;
   padding: 10px;
   text-align: center;
-  background: rgba(27, 101, 185, 0.911);
+  background: rgba(27, 101, 185, 0.9);
+  color: white;
 }
 
 .card img {
-  width: 65%;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 8px;
+  width: 80%;          /* más pequeña */
+  height: 120px;       /* menos altura */
+  object-fit: contain; /* no se recorta */
+  margin: 0 auto;      /* centrar */
+  display: block;
 }
 
+/* ===== BOTONES ===== */
 button {
   margin-top: 10px;
-  padding: 5px 10px;
+  padding: 6px 12px;
   border: none;
   background-color: #1E5DA8;
   color: white;
@@ -407,154 +167,97 @@ button {
 button:hover {
   background-color: #154a87;
 }
-.subtitulo {
-  text-align: center;
-  color: #666;
-  font-size: 14px;
-  margin-top: -10px;
-  margin-bottom: 20px;
-}
-.buscador {
-  display: flex;
-  justify-content: center;
-  margin: 30px 0;
-}
 
-.buscador input {
-  width: 350px;
-  padding: 12px;
-  border-radius: 25px;
-  border: 1px solid #ccc;
-  outline: none;
-  background-color: #f5f5f5;
-}
-
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 4px 20px;
-  background: #fafafa;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.logo img {
-  width: 240px;
-}
-
-/* MENÚ */
-.menu a {
-  margin: 0 15px;
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-}
-
-.menu a:hover {
-  color: #000000;
-}
-
-/* Badge for favorites count */
+/* ===== FAVORITOS ===== */
 .fav-count {
-  display: inline-block;
-  background: #ff3b30;
-  color: #fff;
-  padding: 2px 8px;
-  border-radius: 12px;
+  background: red;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 10px;
   font-size: 12px;
-  margin-left: 6px;
-  vertical-align: middle;
 }
 
-/* Toast notifications */
+/* ===== TOAST ===== */
 #toast-container {
   position: fixed;
   right: 20px;
   bottom: 20px;
-  z-index: 9999;
 }
+
 .toast {
-  background: rgba(0,0,0,0.85);
-  color: #fff;
-  padding: 10px 14px;
-  margin-top: 8px;
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 240ms ease, transform 240ms ease;
-  max-width: 320px;
-}
-.toast.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.card-buttons {
-  display: flex;
-  gap: 8px;
-  justify-content: center;
-}
-
-/* ACCIONES */
-.acciones {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.btn-login {
-  padding: 6px 15px;
-  border: 2px solid #000000;
-  background: transparent;
-  color: #000000;
+  background: black;
+  color: white;
+  padding: 10px;
+  margin-top: 5px;
   border-radius: 5px;
-  cursor: pointer;
 }
 
-.btn-login:hover {
-  background: #0c0c0c;
-  color: #1E5DA8;
-}
-
-.carrito {
-  font-size: 22px;
-  cursor: pointer;
-}
+/* ===== FOOTER ===== */
 .footer {
-  background: #ffffff;
-  color: rgb(0, 0, 0);
-  padding: 40px 20px 20px;
-  margin-top: 40px;
+  background: #fff;
+  color: black;
+  padding: 40px 20px;
 }
 
 .footer-contenido {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  gap: 30px;
-}
-
-.footer h4 {
-  margin-bottom: 10px;
 }
 
 .footer a {
   display: block;
-  color: #070707;
   text-decoration: none;
+  color: black;
   margin-bottom: 5px;
-}
-
-.footer a:hover {
-  color: white;
 }
 
 .footer-copy {
   text-align: center;
   margin-top: 20px;
-  border-top: 1px solid #333;
-  padding-top: 10px;
   font-size: 14px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .buscador input {
+    width: 90%;
+  }
+
+  .acciones {
+    flex-direction: column;
+  }
+
+  .hero {
+    height: auto;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 22px;
+  }
+
+  #productos {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.extra-info {
+  margin-top: 10px;
+  font-size: 13px;
+  color: #fff;
+  text-align: left;
 }
