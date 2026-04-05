@@ -80,6 +80,100 @@ h2 {
   font-size: 22px;
   cursor: pointer;
 }
+<<<<<<< Updated upstream
+=======
+.footer {
+  background: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 40px 20px 20px;
+  margin-top: 40px;
+}
+
+.footer-contenido {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.footer h4 {
+  margin-bottom: 10px;
+}
+
+.footer a {
+  display: block;
+  color: #070707;
+  text-decoration: none;
+  margin-bottom: 5px;
+}
+
+.footer a:hover {
+  color: white;
+}
+
+.footer-copy {
+  text-align: center;
+  margin-top: 20px;
+  border-top: 1px solid #333;
+  padding-top: 10px;
+  font-size: 14px;
+}
+/* Center empty favorites state */
+.no-favoritos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 760px;
+  margin: 40px auto;
+  gap: 12px;
+  padding: 20px;
+}
+.no-favoritos p {
+  margin: 0;
+  line-height: 1.4;
+}
+.no-favoritos .btn-primary {
+  margin-top: 8px;
+}
+
+/* Header for favoritos page: center title and actions */
+.fav-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 28px 0;
+}
+/* Ensure h2 inside fav-header is centered even if inline styles exist */
+.fav-header h2 {
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Favorite button state */
+.fav-btn {
+  background-color: #1E5DA8;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.fav-btn .heart {
+  margin-right: 6px;
+}
+.fav-btn.favorited {
+  background-color: #28a745; /* green */
+  box-shadow: 0 2px 6px rgba(40,167,69,0.2);
+}
+.fav-btn.favorited:hover {
+  background-color: #218838;
+}
+>>>>>>> Stashed changes
 
 /* ===== HERO ===== */
 .hero {

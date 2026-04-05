@@ -93,21 +93,9 @@ function verMasFavorito(nombre) {
   }
 }
 
-function clearFavoritos() {
-  localStorage.removeItem('favoritos');
-  if (typeof showToast === 'function') showToast('Favoritos eliminados');
-  if (typeof updateFavCount === 'function') updateFavCount();
-  mostrarFavoritos();
-}
 
 document.addEventListener('DOMContentLoaded', () => {
   mostrarFavoritos();
-  const btn = document.getElementById('clear-fav-btn');
-  if (btn) btn.addEventListener('click', () => {
-    if (confirm('¿Estás seguro que quieres eliminar todos los favoritos?')) {
-      clearFavoritos();
-    }
-  });
 });
 
 window.addEventListener('storage', (e) => {

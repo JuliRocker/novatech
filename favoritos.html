@@ -21,11 +21,8 @@
     </header>
 
     <main>
-      <section>
+      <section class="fav-header">
         <h2 style="display:inline-block; margin-right:12px">Tus favoritos</h2>
-  <button id="clear-fav-btn" class="btn-primary" style="vertical-align:middle" onclick="if(confirm('¿Estás seguro que quieres eliminar todos los favoritos?')){ localStorage.removeItem('favoritos'); if(typeof updateFavCount==='function') updateFavCount(); if(typeof mostrarFavoritos==='function') mostrarFavoritos(); if(typeof showToast==='function') showToast('Favoritos vaciados'); else alert('Favoritos vaciados'); }">Vaciar favoritos</button>
-        <!-- Botón de respaldo: forzar vaciado en caso de que el otro no funcione -->
-        <button id="force-clear-btn" class="btn-primary" style="vertical-align:middle; margin-left:8px; background:#e55353; border-color:#e55353">Forzar vaciado (temporal)</button>
       </section>
 
       <section id="favoritos">
@@ -40,29 +37,6 @@
     <div id="toast-container"></div>
     <script src="js/script.js"></script>
     <script src="js/favoritos.js"></script>
-    <script>
-      // Fallback temporal: permite forzar el vaciado de favoritos desde esta página
-      (function(){
-        const btn = document.getElementById('force-clear-btn');
-        function forceClear(){
-          try{
-            localStorage.removeItem('favoritos');
-            // si existe una función para actualizar contador/UI, llamarla
-            if (typeof updateFavCount === 'function') updateFavCount();
-            if (typeof mostrarFavoritos === 'function') mostrarFavoritos();
-            // mostrar un toast si la función existe
-            if (typeof showToast === 'function') showToast('Favoritos vaciados (forzado)');
-            else alert('Favoritos vaciados');
-          }catch(e){
-            console.error('Error al forzar vaciado de favoritos:', e);
-            alert('No fue posible vaciar favoritos: ' + e.message);
-          }
-        }
-        if (btn) btn.addEventListener('click', function(){
-          if (confirm('¿Forzar vaciado de favoritos? Esta acción no se puede deshacer.')) forceClear();
-        });
-      })();
-    </script>
 
     <footer class="footer">
       <div class="footer-contenido">
