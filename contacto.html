@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - NovaTech</title>
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Email SDK para envío real de correos -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <style>
+    /* ===== ESTILOS EXCLUSIVOS DE CONTACTO ===== */
+
+    /* Fuente personalizada para esta página */
+    body.contacto-page {
+      font-family: 'Nunito', sans-serif;
+      background: #f4f7fc;
+    }
+
+    /* Hero banner igual que el de index.html pero con overlay azul */
+    .contacto-hero {
+      background: url("img/banner.jpg") no-repeat center center;
+      background-size: cover;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .contacto-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 30, 80, 0.65);
+    }
+    .contacto-hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: #fff;
+    }
+    .contacto-hero-content h1 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      margin: 0 0 8px;
+      text-transform: uppercase;
+    }
+    .contacto-hero-content p {
+      font-size: 15px;
+      opacity: 0.85;
+      margin: 0;
+    }
+
+    /* ===== SECCIÓN PRINCIPAL CONTACTO ===== */
+    .contacto-section {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* ===== TARJETA INFO IZQUIERDA ===== */
+    .contacto-info {
+      background: #fff;
+      border-radius: 16px;
+      padding: 36px 30px;
+      box-shadow: 0 4px 24px rgba(30,93,168,0.08);
+    }
+    .contacto-info h2 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 26px;
+      color: #1E5DA8;
+      margin: 0 0 8px;
+      text-align: left;
+    }
+    .contacto-info .info-subtitulo {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 28px;
+    }
+    .info-bloque {
+      margin-bottom: 22px;
+    }
+    .info-bloque h3 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 18px;
+      color: #222;
+      margin: 0 0 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .info-bloque h3 .icono {
+      background: #1E5DA8;
+      color: #fff;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+    }
+    .info-bloque p {
+      font-size: 13.5px;
+      color: #555;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* Redes sociales */
+    .redes-contacto {
+      display: flex;
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .red-btn {
+      background: #1E5DA8;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 14px;
+      font-size: 13px;
+      cursor: pointer;
+      font-family: 'Nunito', sans-serif;
+      transition: background 0.2s;
+    }
+    .red-btn:hover {
+      background: #154a87;
+    }
+
+    /* ===== TARJETA FORMULARIO DERECHA ===== */
+    .contacto-form-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 36px 32px;
+      box-shadow: 0 4px 24px rgba(30,93,168,0.08);
+    }
+
+    .form-row {
+      margin-bottom: 20px;
+    }
+    .form-row label {
+      display: block;
+      font-weight: 600;
+      font-size: 13.5px;
+      color: #333;
+      margin-bottom: 6px;
+    }
+    .form-row label .requerido {
+      color: #e53935;
+      margin-left: 2px;
+    }
+    .form-row input,
+    .form-row textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid #dde3ef;
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: 'Nunito', sans-serif;
+      background: #f8fafd;
+      color: #222;
+      box-sizing: border-box;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    .form-row input:focus,
+    .form-row textarea:focus {
+      border-color: #1E5DA8;
+      box-shadow: 0 0 0 3px rgba(30,93,168,0.12);
+      background: #fff;
+    }
+    /* Estado de error en campo */
+    .form-row input.campo-error,
+    .form-row textarea.campo-error {
+      border-color: #e53935;
+      box-shadow: 0 0 0 3px rgba(229,57,53,0.10);
+    }
+    .error-msg {
+      color: #e53935;
+      font-size: 12px;
+      margin-top: 4px;
+      display: none;
+    }
+    .form-row textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    /* Dos columnas internas para nombre+cc */
+    .form-doble {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    /* Botón enviar */
+    .btn-enviar {
+      width: 100%;
+      padding: 14px;
+      background: #1E5DA8;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: 'Rajdhani', sans-serif;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      margin-top: 6px;
+    }
+    .btn-enviar:hover {
+      background: #154a87;
+    }
+    .btn-enviar:active {
+      transform: scale(0.99);
+    }
+    .btn-enviar:disabled {
+      background: #9db8d8;
+      cursor: not-allowed;
+    }
+
+    /* ===== ALERTA DE ÉXITO / ERROR ===== */
+    .alerta {
+      display: none;
+      padding: 14px 18px;
+      border-radius: 8px;
+      font-size: 14px;
+      margin-top: 16px;
+      font-weight: 600;
+    }
+    .alerta-exito {
+      background: #e6f4ea;
+      color: #2e7d32;
+      border: 1px solid #a5d6a7;
+    }
+    .alerta-error-envio {
+      background: #fdecea;
+      color: #c62828;
+      border: 1px solid #ef9a9a;
+    }
+
+    /* ===== RESPONSIVE CONTACTO ===== */
+    @media (max-width: 768px) {
+      .contacto-section {
+        grid-template-columns: 1fr;
+      }
+      .form-doble {
+        grid-template-columns: 1fr;
+      }
+      .contacto-hero-content h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body class="contacto-page">
+
+  <!-- ===== HEADER (idéntico al de index.html) ===== -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="img/logo.png" alt="NovaTech">
+    </div>
+    <nav class="menu">
+      <a href="index.html">Inicio</a>
+      <a href="index.html#productos">Productos</a>
+      <a href="favoritos.html">Favoritos <span id="fav-count" class="fav-count">0</span></a>
+      <a href="contacto.html" style="color:#1E5DA8; font-weight:700;">Contacto</a>
+      <a href="quienes-somos.html">¿Quiénes somos?</a>
+    </nav>
+    <div class="buscador">
+      <input type="text" placeholder="Buscar productos...">
+    </div>
+    <div class="acciones">
+      <button class="button">Iniciar sesión</button>
+      <button class="btn-login">Regístrate</button>
+      <div class="carrito">🛒</div>
+    </div>
+  </header>
+
+  <!-- ===== HERO CONTACTO ===== -->
+  <section class="contacto-hero">
+    <div class="contacto-hero-content">
+      <h1>Contacto</h1>
+      <p>¿Tienes dudas o necesitas asesoría? ¡Estamos aquí para ayudarte!<br>
+         Envíanos un mensaje y te responderemos en breve.</p>
+    </div>
+  </section>
+
+  <!-- ===== SECCIÓN PRINCIPAL ===== -->
+  <section class="contacto-section">
+
+    <!-- Columna izquierda: Información de contacto -->
+    <div class="contacto-info">
+      <h2>Información de contacto</h2>
+      <p class="info-subtitulo">Estamos aquí para ayudarte con tus necesidades</p>
+
+      <div class="info-bloque">
+        <h3><span class="icono">📍</span> Dirección</h3>
+        <p>Carrera 15 # 78-33 local-15<br>CCUnilago<br>Bogotá D.C</p>
+      </div>
+
+      <div class="info-bloque">
+        <h3><span class="icono">✉️</span> Correo electrónico</h3>
+        <p>NOVATECH-1@outlook.com</p>
+      </div>
+
+      <div class="info-bloque">
+        <h3><span class="icono">📞</span> Teléfono</h3>
+        <p>+573118957844<br>Lunes a Viernes de 8:00 a 17:00</p>
+      </div>
+
+      <div class="redes-contacto">
+        <button class="red-btn">𝕏 Twitter</button>
+        <button class="red-btn">📷 Instagram</button>
+        <button class="red-btn">👥 Facebook</button>
+        <button class="red-btn">in LinkedIn</button>
+      </div>
+    </div>
+
+    <!-- Columna derecha: Formulario -->
+    <div class="contacto-form-card">
+      <!--
+        FORMULARIO DE CONTACTO
+        - Envía a: NOVATECH-1@outlook.com vía Email
+        - Campos requeridos: nombre, CC, correo, celular, asunto, mensaje
+       
+      -->
+      <div id="formulario-contacto">
+
+        <div class="form-doble">
+          <!-- Campo: Nombre completo -->
+          <div class="form-row">
+            <label for="nombre">Nombre completo <span class="requerido">*</span></label>
+            <input type="text" id="nombre" placeholder="Tu nombre completo" maxlength="80">
+            <span class="error-msg" id="err-nombre">Por favor ingresa tu nombre.</span>
+          </div>
+
+          <!-- Campo: Número de CC — mínimo 5 dígitos -->
+          <div class="form-row">
+            <label for="cc">Número de cédula (CC) <span class="requerido">*</span></label>
+            <input type="text" id="cc" placeholder="Ej: 10023456789" maxlength="12" inputmode="numeric">
+            <span class="error-msg" id="err-cc">El número de CC debe tener mínimo 5 dígitos.</span>
+          </div>
+        </div>
+
+        <div class="form-doble">
+          <!-- Campo: Correo electrónico -->
+          <div class="form-row">
+            <label for="correo">Correo electrónico <span class="requerido">*</span></label>
+            <input type="email" id="correo" placeholder="tucorreo@ejemplo.com">
+            <span class="error-msg" id="err-correo">Ingresa un correo electrónico válido.</span>
+          </div>
+
+          <!-- Campo: Celular — mínimo 11 dígitos -->
+          <div class="form-row">
+            <label for="celular">Número de celular <span class="requerido">*</span></label>
+            <input type="text" id="celular" placeholder="Ej: 57300 123 9876" maxlength="13" inputmode="numeric">
+            <span class="error-msg" id="err-celular">El número de celular debe tener mínimo 11 dígitos.</span>
+          </div>
+        </div>
+
+        <!-- Campo: Asunto -->
+        <div class="form-row">
+          <label for="asunto">Asunto <span class="requerido">*</span></label>
+          <input type="text" id="asunto" placeholder="¿En qué podemos ayudarte?" maxlength="100">
+          <span class="error-msg" id="err-asunto">Por favor indica el asunto.</span>
+        </div>
+
+        <!-- Campo: Mensaje -->
+        <div class="form-row">
+          <label for="mensaje">Mensaje <span class="requerido">*</span></label>
+          <textarea id="mensaje" placeholder="Escribe aquí tu mensaje detallado..."></textarea>
+          <span class="error-msg" id="err-mensaje">Por favor escribe tu mensaje.</span>
+        </div>
+
+        <!-- Botón enviar -->
+        <button class="btn-enviar" id="btn-enviar" onclick="enviarFormulario()">
+          Enviar mensaje
+        </button>
+
+        <!-- Alertas de resultado -->
+        <div class="alerta alerta-exito" id="alerta-exito">
+          ✅ ¡Mensaje enviado correctamente! Te responderemos pronto a tu correo.
+        </div>
+        <div class="alerta alerta-error-envio" id="alerta-error-envio">
+          ❌ Hubo un problema al enviar el mensaje. Intenta de nuevo o escríbenos directamente a NOVATECH-1@outlook.com
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===== FOOTER (idéntico al de index.html) ===== -->
+  <footer class="footer">
+    <div class="footer-contenido">
+      <div class="footer-logo">
+        <div class="footer-redes">
+          <h4>Síguenos</h4>
+          <p>Facebook | Instagram | Twitter</p>
+        </div>
+      </div>
+      <div class="footer-categorias">
+        <h4>Categorías</h4>
+        <a href="#">Computadores</a>
+        <a href="#">Celulares</a>
+        <a href="#">Tablets</a>
+        <a href="#">Accesorios</a>
+        <a href="#">Periféricos</a>
+      </div>
+      <div class="footer-explora">
+        <h4>Explora</h4>
+        <a href="#">Productos</a>
+        <a href="#">Ofertas</a>
+        <a href="#">Más vendidos</a>
+        <a href="#">Nuevos ingresos</a>
+        <a href="#">Recomendados</a>
+      </div>
+      <div class="footer-soporte">
+        <h4>Soporte</h4>
+        <a href="contacto.html">Contacto</a>
+        <a href="#">Preguntas frecuentes</a>
+        <a href="#">Políticas de garantía</a>
+        <a href="#">Envíos</a>
+        <a href="#">Devoluciones</a>
+      </div>
+      <div class="footer-contacto">
+        <h4>Contacto</h4>
+        <p>Email: NOVATECH-1@outlook.com</p>
+        <p>Tel: +57 311 895 7844</p>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <p>© 2026 NovaTech - Todos los derechos reservados<br>Bogotá - Colombia</p>
+    </div>
+  </footer>
+
+  <!-- Script contador de favoritos (igual que en otras páginas) -->
+  <script src="js/script.js"></script>
+
+  <!-- ================================================================
+       JS DE CONTACTO — contacto.html
+       ================================================================
+       FUNCIONAMIENTO:
+       1. Al hacer clic en "Enviar mensaje" se ejecuta enviarFormulario()
+       2. Se validan todos los campos antes de enviar
+       3. Se usa Email (servicio gratuito) para enviar el correo real
+          al destino: NOVATECH-1@outlook.com
+            ================================================================ -->
+  <script>
+    // ============================================================
+    // CONFIGURACIÓN EMAIL
+    // Reemplaza estos valores con los de tu cuenta Email
+    // ============================================================
+    const EMAILJS_SERVICE_ID  = 'TU_SERVICE_ID';    // Ej: 'service_abc123'
+    const EMAILJS_TEMPLATE_ID = 'TU_TEMPLATE_ID';   // Ej: 'template_xyz789'
+    const EMAILJS_PUBLIC_KEY  = 'TU_PUBLIC_KEY';    // Ej: 'user_XXXXXXXXXXXXXXX'
+
+    // Inicializar EmailJS con tu clave pública
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+
+    // ============================================================
+    // FUNCIÓN PRINCIPAL: Validar y enviar formulario
+    // ============================================================
+    function enviarFormulario() {
+      // Limpiar estados previos
+      limpiarErrores();
+      ocultarAlertas();
+
+      // Obtener valores de los campos
+      const nombre  = document.getElementById('nombre').value.trim();
+      const cc      = document.getElementById('cc').value.trim().replace(/\s/g, '');
+      const correo  = document.getElementById('correo').value.trim();
+      const celular = document.getElementById('celular').value.trim().replace(/\s/g, '');
+      const asunto  = document.getElementById('asunto').value.trim();
+      const mensaje = document.getElementById('mensaje').value.trim();
+
+      // ---- VALIDACIONES ----------------------------------------
+      let hayError = false;
+
+      // Nombre
+      if (!nombre) {
+        mostrarError('nombre', 'err-nombre');
+        hayError = true;
+      }
+
+      // CC: solo dígitos y mínimo 5
+      const ccSoloDigitos = cc.replace(/\D/g, '');
+      if (!ccSoloDigitos || ccSoloDigitos.length < 5) {
+        mostrarError('cc', 'err-cc');
+        hayError = true;
+      }
+
+      // Correo: formato básico de email
+      const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!correo || !regexEmail.test(correo)) {
+        mostrarError('correo', 'err-correo');
+        hayError = true;
+      }
+
+      // Celular: solo dígitos y mínimo 11
+      const celularSoloDigitos = celular.replace(/\D/g, '');
+      if (!celularSoloDigitos || celularSoloDigitos.length < 10) {
+        mostrarError('celular', 'err-celular');
+        hayError = true;
+      }
+
+      // Asunto
+      if (!asunto) {
+        mostrarError('asunto', 'err-asunto');
+        hayError = true;
+      }
+
+      // Mensaje
+      if (!mensaje) {
+        mostrarError('mensaje', 'err-mensaje');
+        hayError = true;
+      }
+
+      // Si hay errores, detener
+      if (hayError) return;
+
+      // ---- ENVÍO VÍA EMAILJS -----------------------------------
+      const btn = document.getElementById('btn-enviar');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+
+      // Parámetros que se enviarán al template de EmailJS
+      // Estos nombres deben coincidir con las variables {{}} de tu plantilla
+      const parametros = {
+        nombre:  nombre,
+        cc:      ccSoloDigitos,
+        correo:  correo,
+        celular: celularSoloDigitos,
+        asunto:  asunto,
+        mensaje: mensaje,
+        // Fecha y hora del envío para el registro en el correo
+        fecha:   new Date().toLocaleString('es-CO', { timeZone: 'America/Bogota' })
+      };
+
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, parametros)
+        .then(function(respuesta) {
+          // Éxito
+          console.log('Correo enviado:', respuesta.status, respuesta.text);
+          document.getElementById('alerta-exito').style.display = 'block';
+          limpiarFormulario();
+        })
+        .catch(function(error) {
+          // Error de envío
+          console.error('Error al enviar:', error);
+          document.getElementById('alerta-error-envio').style.display = 'block';
+        })
+        .finally(function() {
+          btn.disabled = false;
+          btn.textContent = 'Enviar mensaje';
+        });
+    }
+
+    // ---- Funciones auxiliares ----------------------------------
+
+    // Mostrar error en campo
+    function mostrarError(idCampo, idError) {
+      document.getElementById(idCampo).classList.add('campo-error');
+      document.getElementById(idError).style.display = 'block';
+    }
+
+    // Limpiar todos los errores
+    function limpiarErrores() {
+      const campos = ['nombre', 'cc', 'correo', 'celular', 'asunto', 'mensaje'];
+      const errores = ['err-nombre', 'err-cc', 'err-correo', 'err-celular', 'err-asunto', 'err-mensaje'];
+      campos.forEach(id => document.getElementById(id).classList.remove('campo-error'));
+      errores.forEach(id => document.getElementById(id).style.display = 'none');
+    }
+
+    // Ocultar alertas de resultado
+    function ocultarAlertas() {
+      document.getElementById('alerta-exito').style.display = 'none';
+      document.getElementById('alerta-error-envio').style.display = 'none';
+    }
+
+    // Limpiar el formulario tras envío exitoso
+    function limpiarFormulario() {
+      ['nombre', 'cc', 'correo', 'celular', 'asunto', 'mensaje'].forEach(id => {
+        document.getElementById(id).value = '';
+      });
+    }
+
+    // Solo permitir dígitos en campos numéricos
+    document.getElementById('cc').addEventListener('input', function() {
+      this.value = this.value.replace(/\D/g, '');
+    });
+    document.getElementById('celular').addEventListener('input', function() {
+      this.value = this.value.replace(/\D/g, '');
+    });
+  </script>
+
+</body>
+</html>

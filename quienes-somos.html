@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¿Quiénes somos? - NovaTech</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- ===================================================
+       PÁGINA: quienes-somos.html — NUEVA PÁGINA AGREGADA
+       Descripción: Página institucional con información
+       sobre NovaTech: quiénes somos, misión, visión
+       y valores de la empresa.
+       =================================================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===== ESTILOS EXCLUSIVOS DE QUIÉNES SOMOS ===== */
+
+    body.quienes-page {
+      font-family: 'Nunito', sans-serif;
+      background: #f4f7fc;
+    }
+
+    /* Hero banner */
+    .qs-hero {
+      background: url("img/banner.jpg") no-repeat center center;
+      background-size: cover;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .qs-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(10, 30, 80, 0.65);
+    }
+    .qs-hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      color: #fff;
+    }
+    .qs-hero-content h1 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      margin: 0 0 8px;
+      text-transform: uppercase;
+    }
+    .qs-hero-content p {
+      font-size: 15px;
+      opacity: 0.85;
+      margin: 0;
+    }
+
+    /* ===== CONTENEDOR PRINCIPAL ===== */
+    .qs-main {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    /* ===== TARJETA GENÉRICA ===== */
+    .qs-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 36px 40px;
+      box-shadow: 0 4px 24px rgba(30,93,168,0.08);
+    }
+
+    .qs-card h2 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 28px;
+      color: #1E5DA8;
+      margin: 0 0 14px;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .qs-card h2 .icono-titulo {
+      background: #1E5DA8;
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      flex-shrink: 0;
+    }
+    .qs-card p {
+      font-size: 15px;
+      color: #444;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    /* ===== TARJETA DE PRESENTACIÓN (primera) ===== */
+    .qs-card-intro {
+      border-left: 5px solid #1E5DA8;
+    }
+    .qs-card-intro p + p {
+      margin-top: 12px;
+    }
+
+    /* ===== GRID MISIÓN / VISIÓN ===== */
+    .qs-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    /* ===== VALORES ===== */
+    .valores-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .valor-item {
+      background: #f0f5ff;
+      border-radius: 12px;
+      padding: 20px 16px;
+      text-align: center;
+      border-top: 3px solid #1E5DA8;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .valor-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(30,93,168,0.12);
+    }
+    .valor-item .valor-icono {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+    .valor-item h3 {
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 17px;
+      color: #1E5DA8;
+      margin: 0 0 6px;
+    }
+    .valor-item p {
+      font-size: 12.5px;
+      color: #666;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .qs-grid-2 {
+        grid-template-columns: 1fr;
+      }
+      .qs-hero-content h1 {
+        font-size: 32px;
+      }
+      .qs-card {
+        padding: 24px 20px;
+      }
+    }
+  </style>
+</head>
+<body class="quienes-page">
+
+  <!-- ===== HEADER ===== -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="img/logo.png" alt="NovaTech">
+    </div>
+    <nav class="menu">
+      <a href="index.html">Inicio</a>
+      <a href="index.html#productos">Productos</a>
+      <a href="favoritos.html">Favoritos <span id="fav-count" class="fav-count">0</span></a>
+      <a href="contacto.html">Contacto</a>
+      <a href="quienes-somos.html" style="color:#1E5DA8; font-weight:700;">¿Quiénes somos?</a>
+    </nav>
+    <div class="buscador">
+      <input type="text" placeholder="Buscar productos...">
+    </div>
+    <div class="acciones">
+      <button class="button">Iniciar sesión</button>
+      <button class="btn-login">Regístrate</button>
+      <div class="carrito">🛒</div>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="qs-hero">
+    <div class="qs-hero-content">
+      <h1>¿Quiénes somos?</h1>
+      <p>Conoce el equipo y los valores detrás de NovaTech</p>
+    </div>
+  </section>
+
+  <!-- ===== CONTENIDO PRINCIPAL ===== -->
+  <main class="qs-main">
+
+    <!-- Presentación general -->
+    <div class="qs-card qs-card-intro">
+      <h2><span class="icono-titulo">🏢</span> En NovaTech</h2>
+      <p>
+        Somos una tienda especializada en la comercialización de productos tecnológicos de alta calidad,
+        enfocada en brindar soluciones innovadoras para el día a día de nuestros clientes. Nos apasiona
+        la tecnología y trabajamos constantemente para ofrecer equipos modernos, confiables y accesibles.
+      </p>
+      <p>
+        Nuestro compromiso es conectar a las personas con las mejores herramientas digitales,
+        facilitando su trabajo, estudio y entretenimiento.
+      </p>
+    </div>
+
+    <!-- Misión y Visión en dos columnas -->
+    <div class="qs-grid-2">
+
+      <div class="qs-card">
+        <h2><span class="icono-titulo">🎯</span> Nuestra misión</h2>
+        <p>
+          Ofrecer productos tecnológicos de excelente calidad, acompañados de un servicio ágil,
+          confiable y cercano, que satisfaga las necesidades de nuestros clientes y contribuya
+          a mejorar su experiencia digital.
+        </p>
+      </div>
+
+      <div class="qs-card">
+        <h2><span class="icono-titulo">🔭</span> Nuestra visión</h2>
+        <p>
+          Ser una tienda líder en tecnología a nivel nacional, reconocida por su innovación,
+          calidad de servicio y compromiso con la satisfacción del cliente.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Valores -->
+    <div class="qs-card">
+      <h2><span class="icono-titulo">⭐</span> Nuestros valores</h2>
+      <div class="valores-grid">
+
+        <div class="valor-item">
+          <div class="valor-icono">✅</div>
+          <h3>Calidad</h3>
+          <p>Productos confiables y duraderos</p>
+        </div>
+
+        <div class="valor-item">
+          <div class="valor-icono">💡</div>
+          <h3>Innovación</h3>
+          <p>Siempre a la vanguardia tecnológica</p>
+        </div>
+
+        <div class="valor-item">
+          <div class="valor-icono">🤝</div>
+          <h3>Compromiso</h3>
+          <p>Atención responsable y oportuna</p>
+        </div>
+
+        <div class="valor-item">
+          <div class="valor-icono">🔒</div>
+          <h3>Confianza</h3>
+          <p>Transparencia en cada compra</p>
+        </div>
+
+        <div class="valor-item">
+          <div class="valor-icono">💬</div>
+          <h3>Servicio al cliente</h3>
+          <p>Acompañamiento antes, durante y después de la compra</p>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-contenido">
+      <div class="footer-logo">
+        <div class="footer-redes">
+          <h4>Síguenos</h4>
+          <p>Facebook | Instagram | Twitter</p>
+        </div>
+      </div>
+      <div class="footer-categorias">
+        <h4>Categorías</h4>
+        <a href="#">Computadores</a>
+        <a href="#">Celulares</a>
+        <a href="#">Tablets</a>
+        <a href="#">Accesorios</a>
+        <a href="#">Periféricos</a>
+      </div>
+      <div class="footer-explora">
+        <h4>Explora</h4>
+        <a href="#">Productos</a>
+        <a href="#">Ofertas</a>
+        <a href="#">Más vendidos</a>
+        <a href="#">Nuevos ingresos</a>
+        <a href="#">Recomendados</a>
+      </div>
+      <div class="footer-soporte">
+        <h4>Soporte</h4>
+        <a href="contacto.html">Contacto</a>
+        <a href="#">Preguntas frecuentes</a>
+        <a href="#">Políticas de garantía</a>
+        <a href="#">Envíos</a>
+        <a href="#">Devoluciones</a>
+      </div>
+      <div class="footer-contacto">
+        <h4>Contacto</h4>
+        <p>Email: NOVATECH-1@outlook.com</p>
+        <p>Tel: +57 311 895 7844</p>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <p>© 2026 NovaTech - Todos los derechos reservados<br>Bogotá - Colombia</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+
+</body>
+</html>

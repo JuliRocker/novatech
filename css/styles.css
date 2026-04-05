@@ -80,44 +80,6 @@ h2 {
   font-size: 22px;
   cursor: pointer;
 }
-<<<<<<< Updated upstream
-=======
-.footer {
-  background: #ffffff;
-  color: rgb(0, 0, 0);
-  padding: 40px 20px 20px;
-  margin-top: 40px;
-}
-
-.footer-contenido {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 30px;
-}
-
-.footer h4 {
-  margin-bottom: 10px;
-}
-
-.footer a {
-  display: block;
-  color: #070707;
-  text-decoration: none;
-  margin-bottom: 5px;
-}
-
-.footer a:hover {
-  color: white;
-}
-
-.footer-copy {
-  text-align: center;
-  margin-top: 20px;
-  border-top: 1px solid #333;
-  padding-top: 10px;
-  font-size: 14px;
-}
 /* Center empty favorites state */
 .no-favoritos {
   display: flex;
@@ -146,7 +108,6 @@ h2 {
   gap: 12px;
   margin: 28px 0;
 }
-/* Ensure h2 inside fav-header is centered even if inline styles exist */
 .fav-header h2 {
   display: block;
   width: 100%;
@@ -167,13 +128,12 @@ h2 {
   margin-right: 6px;
 }
 .fav-btn.favorited {
-  background-color: #28a745; /* green */
+  background-color: #28a745;
   box-shadow: 0 2px 6px rgba(40,167,69,0.2);
 }
 .fav-btn.favorited:hover {
   background-color: #218838;
 }
->>>>>>> Stashed changes
 
 /* ===== HERO ===== */
 .hero {
