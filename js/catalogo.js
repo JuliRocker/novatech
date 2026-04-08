@@ -17,7 +17,7 @@ window.onProductosLoaded = function (productos) {
     contenedor.innerHTML = '';
     if (!lista.length) {
       contenedor.innerHTML =
-        '<p class="subtitulo" style="width:100%;text-align:center">No hay productos que coincidan con la búsqueda.</p>';
+        '<p class="subtitulo catalogo-sin-resultados">No hay productos que coincidan con la búsqueda.</p>';
       return;
     }
 
