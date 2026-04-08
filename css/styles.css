@@ -68,17 +68,74 @@ h2 {
   gap: 10px;
 }
 
+.acciones-auth {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.acciones-auth .button,
+.acciones-auth .btn-login {
+  margin-top: 0;
+}
+
+.button {
+  padding: 6px 14px;
+  border: none;
+  background-color: #1E5DA8;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.button:hover {
+  background-color: #154a87;
+}
+
+a.button--nav {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.nav-usuario {
+  font-size: 14px;
+  color: #333;
+  font-weight: 600;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .btn-login {
   padding: 6px 12px;
   border: 2px solid #050505;
-  background:#000 ;
+  background: #000;
   border-radius: 5px;
-  cursor:pointer;
+  cursor: pointer;
+  color: #fff;
+  font-size: 14px;
+  font-family: inherit;
 }
 
 .btn-login:hover {
-  background: #000;
-  color: white;
+  background: #222;
+  color: #fff;
+}
+
+a.btn-login--nav {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  color: #fff;
 }
 
 .carrito {

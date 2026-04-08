@@ -27,9 +27,11 @@
       <input type="text" placeholder="Buscar productos...">
     </div>
     <div class="acciones">
-      <button class="button">Iniciar sesión</button>
-      <button class="btn-login">Regístrate</button>
-      <div class="carrito">🛒</div>
+      <div class="acciones-auth" id="acciones-auth">
+        <a href="sesion.html" class="button button--nav">Iniciar sesión</a>
+        <a href="sesion.html?registro=1" class="btn-login btn-login--nav">Regístrate</a>
+      </div>
+      <div class="carrito" title="Carrito">🛒 <span id="cart-count" class="fav-count">0</span></div>
     </div>
   </header>
 
@@ -165,6 +167,7 @@
   </footer>
 
   <script src="js/script.js"></script>
+  <script src="js/nav-auth.js"></script>
 
 </body>
 </html>

@@ -10,7 +10,7 @@
 
     <header class="navbar">
       <div class="logo">
-        <img src="img/logo.png" alt="NovaTech" />
+        <a href="index.html" class="logo-link"><img src="img/logo.png" alt="NovaTech" /></a>
       </div>
 
       <nav class="menu">
@@ -18,7 +18,20 @@
         <a href="catalogo.html">Productos</a>
         <a href="favoritos.html">Favoritos <span id="fav-count" class="fav-count">0</span></a>
         <a href="contacto.html">Contacto</a>
+        <a href="quienes-somos.html">¿Quiénes somos?</a>
       </nav>
+
+      <div class="buscador">
+        <input type="text" placeholder="Buscar en catálogo..." disabled style="opacity:0.65" title="Usa el catálogo para buscar">
+      </div>
+
+      <div class="acciones">
+        <div class="acciones-auth" id="acciones-auth">
+          <a href="sesion.html" class="button button--nav">Iniciar sesión</a>
+          <a href="sesion.html?registro=1" class="btn-login btn-login--nav">Regístrate</a>
+        </div>
+        <div class="carrito" title="Carrito">🛒 <span id="cart-count" class="fav-count">0</span></div>
+      </div>
     </header>
 
     <main>
@@ -37,6 +50,7 @@
     <!-- Shared utilities (toasts, counter) -->
     <div id="toast-container"></div>
     <script src="js/script.js"></script>
+    <script src="js/nav-auth.js"></script>
     <script src="js/favoritos.js"></script>
 
     <footer class="footer">

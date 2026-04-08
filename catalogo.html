@@ -27,8 +27,10 @@
     </div>
 
     <div class="acciones">
-      <button type="button" class="button">Iniciar sesión</button>
-      <button type="button" class="btn-login">Registrate</button>
+      <div class="acciones-auth" id="acciones-auth">
+        <a href="sesion.html" class="button button--nav">Iniciar sesión</a>
+        <a href="sesion.html?registro=1" class="btn-login btn-login--nav">Regístrate</a>
+      </div>
       <div class="carrito" title="Carrito">🛒 <span id="cart-count" class="fav-count">0</span></div>
     </div>
   </header>
@@ -44,6 +46,7 @@
   <div id="toast-container"></div>
   <script src="js/catalogo.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/nav-auth.js"></script>
 
   <footer class="footer">
     <div class="footer-contenido">
