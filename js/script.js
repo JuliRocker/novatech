@@ -89,7 +89,7 @@ function mostrarProductos(productos) {
 
   productos.forEach(producto => {
     const card = document.createElement('div');
-    card.classList.add('card');
+    card.classList.add('card', 'card--clickable');
 
     const imgSrc = producto.imagen || 'img/placeholder.png';
     const nombreEsc = producto.nombre.replace(/'/g, "\\'");
@@ -118,6 +118,12 @@ function mostrarProductos(productos) {
         <button type="button" onclick="verMas(this)">Ver más</button>
       </div>
     `;
+
+    card.addEventListener('click', function (e) {
+      if (e.target.closest('.card-buttons')) return;
+      window.location.href =
+        'producto-detalle.html?nombre=' + encodeURIComponent(producto.nombre);
+    });
 
     contenedor.appendChild(card);
   });

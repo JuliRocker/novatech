@@ -1,17 +1,8 @@
-// Catálogo: lista clickeable hacia producto-detalle.html
+// Catálogo: mismas cards que index; clic en la tarjeta abre el detalle (no en los botones)
 
 window.onProductosLoaded = function (productos) {
   const contenedor = document.getElementById('catalogo-productos');
   if (!contenedor) return;
-
-  function escapeHtml(s) {
-    if (!s) return '';
-    return String(s)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
-  }
 
   function render(lista) {
     contenedor.innerHTML = '';
@@ -22,24 +13,57 @@ window.onProductosLoaded = function (productos) {
     }
 
     lista.forEach(function (producto) {
-      const a = document.createElement('a');
-      a.className = 'card card--clickable';
-      a.href = 'producto-detalle.html?nombre=' + encodeURIComponent(producto.nombre);
+      const card = document.createElement('div');
+      card.classList.add('card', 'card--clickable');
+
       const imgSrc = producto.imagen || 'img/placeholder.png';
-      a.innerHTML =
+      const nombreEsc = producto.nombre.replace(/'/g, "\\'");
+
+      const isFav = (JSON.parse(localStorage.getItem('favoritos')) || []).some(function (f) {
+        return typeof f === 'string' ? f === producto.nombre : f.nombre === producto.nombre;
+      });
+
+      card.innerHTML =
         '<img src="' +
-        escapeHtml(imgSrc) +
+        imgSrc +
         '" alt="' +
-        escapeHtml(producto.nombre) +
+        producto.nombre +
         '">' +
         '<h3>' +
-        escapeHtml(producto.nombre) +
+        producto.nombre +
         '</h3>' +
         '<p>' +
-        escapeHtml(producto.descripcion || '') +
+        (producto.descripcion || '') +
         '</p>' +
-        '<p class="ver-detalle-hint">Ver detalle →</p>';
-      contenedor.appendChild(a);
+        '<div class="extra-info" style="display: none;">' +
+        '<p><strong>Características:</strong></p>' +
+        '<p>' +
+        (producto.caracteristicas || 'Información no disponible') +
+        '</p>' +
+        '</div>' +
+        '<div class="card-buttons">' +
+        '<button type="button" class="fav-btn ' +
+        (isFav ? 'favorited' : '') +
+        '" data-nombre="' +
+        producto.nombre +
+        '" ' +
+        'onclick="toggleFavorito(\'' +
+        nombreEsc +
+        '\')">' +
+        '<span class="heart">❤</span> ' +
+        '<span class="fav-text">' +
+        (isFav ? 'Favorito' : 'Agregar a favoritos') +
+        '</span></button>' +
+        '<button type="button" onclick="verMas(this)">Ver más</button>' +
+        '</div>';
+
+      card.addEventListener('click', function (e) {
+        if (e.target.closest('.card-buttons')) return;
+        window.location.href =
+          'producto-detalle.html?nombre=' + encodeURIComponent(producto.nombre);
+      });
+
+      contenedor.appendChild(card);
     });
   }
 

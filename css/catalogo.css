@@ -1,28 +1,3 @@
-.card--clickable {
-  cursor: pointer;
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.card--clickable:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-.card--clickable:focus {
-  outline: 2px solid #fff;
-  outline-offset: 2px;
-}
-
-.card--clickable .ver-detalle-hint {
-  margin: 12px 0 0;
-  font-size: 13px;
-  font-weight: 600;
-  opacity: 0.95;
-}
-
 .catalogo-sin-resultados {
   width: 100%;
   text-align: center;
