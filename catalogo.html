@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo - NovaTech</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <a href="index.html" style="text-decoration:none;display:inline-block"><img src="img/logo.png" alt="NovaTech"></a>
+    </div>
+
+    <nav class="menu">
+      <a href="index.html">Inicio</a>
+      <a href="catalogo.html">Productos</a>
+      <a href="favoritos.html">Favoritos <span id="fav-count" class="fav-count">0</span></a>
+      <a href="contacto.html">Contacto</a>
+      <a href="quienes-somos.html">¿Quiénes somos?</a>
+    </nav>
+
+    <div class="buscador">
+      <input type="text" id="search" placeholder="Buscar productos...">
+    </div>
+
+    <div class="acciones">
+      <button type="button" class="button">Iniciar sesión</button>
+      <button type="button" class="btn-login">Registrate</button>
+      <div class="carrito" title="Carrito">🛒 <span id="cart-count" class="fav-count">0</span></div>
+    </div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Catálogo de productos</h2>
+      <p class="subtitulo">Haz clic en una tarjeta para ver la ficha completa, favoritos y carrito.</p>
+    </section>
+    <section id="catalogo-productos"></section>
+  </main>
+
+  <div id="toast-container"></div>
+  <script src="js/catalogo.js"></script>
+  <script src="js/script.js"></script>
+
+  <footer class="footer">
+    <div class="footer-contenido">
+      <div class="footer-logo">
+        <div class="footer-redes">
+          <h4>Síguenos</h4>
+          <p>Facebook | Instagram | Twitter</p>
+        </div>
+      </div>
+      <div class="footer-categorias">
+        <h4>Categorías</h4>
+        <a href="catalogo.html">Productos</a>
+      </div>
+      <div class="footer-explora">
+        <h4>Explora</h4>
+        <a href="catalogo.html">Catálogo</a>
+      </div>
+      <div class="footer-soporte">
+        <h4>Soporte</h4>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div class="footer-contacto">
+        <h4>Contacto</h4>
+        <p>Email: contacto@novatech.com</p>
+        <p>Tel: +57 300 123 9876</p>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <p>© 2026 NovaTech - Todos los derechos reservados<br>Bogotá - Colombia</p>
+    </div>
+  </footer>
+</body>
+</html>

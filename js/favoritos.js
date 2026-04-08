@@ -44,7 +44,7 @@ function renderFavoritos(favoritos, contenedor) {
       </div>
     `;
     const btn = contenedor.querySelector('#ir-productos-btn');
-    if (btn) btn.addEventListener('click', () => window.location.href = 'index.html#productos');
+    if (btn) btn.addEventListener('click', () => window.location.href = 'catalogo.html');
     return;
   }
 
