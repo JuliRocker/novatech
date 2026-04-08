@@ -48,3 +48,26 @@
   margin: 0 12px 0 0;
   text-align: center;
 }
+
+/* Espacio entre Eliminar y Ver más */
+#favoritos .card-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+#favoritos .card-buttons button {
+  margin-top: 0;
+}
+
+/* Quitar de favoritos: rojo, mismo tamaño que otros botones de card */
+.card-buttons .btn-eliminar-fav {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.card-buttons .btn-eliminar-fav:hover {
+  background-color: #c82333;
+}
