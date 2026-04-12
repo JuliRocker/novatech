@@ -1,0 +1,73 @@
+.no-favoritos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 760px;
+  margin: 40px auto;
+  gap: 12px;
+  padding: 20px;
+}
+
+.no-favoritos p {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.btn-primary {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #1E5DA8;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background-color: #154a87;
+}
+
+.no-favoritos .btn-primary {
+  margin-top: 8px;
+}
+
+.fav-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 28px 0;
+}
+
+.fav-header__title {
+  display: inline-block;
+  margin: 0 12px 0 0;
+  text-align: center;
+}
+
+/* Espacio entre Eliminar y Ver más */
+#favoritos .card-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+#favoritos .card-buttons button {
+  margin-top: 0;
+}
+
+/* Quitar de favoritos: rojo, mismo tamaño que otros botones de card */
+.card-buttons .btn-eliminar-fav {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.card-buttons .btn-eliminar-fav:hover {
+  background-color: #c82333;
+}

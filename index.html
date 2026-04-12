@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>NovaTech</title>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
 
@@ -16,7 +17,7 @@
 
   <nav class="menu">
   <a href="#">Inicio</a>
-  <a href="#productos">Productos</a>
+  <a href="catalogo.html">Productos</a>
     <a href="favoritos.html">Favoritos <span id="fav-count" class="fav-count">0</span></a>
     <a href="contacto.html">Contacto</a>
     <a href="quienes-somos.html">¿Quiénes somos?</a>
@@ -29,9 +30,11 @@
   </div>
 
   <div class="acciones">
-    <button class="button">Iniciar sesión</button>
-    <button class="btn-login">Registrate</button>
-    <div class="carrito">🛒</div>
+    <div class="acciones-auth" id="acciones-auth">
+      <a href="sesion.html" class="button button--nav">Iniciar sesión</a>
+      <a href="sesion.html?registro=1" class="btn-login btn-login--nav">Regístrate</a>
+    </div>
+    <div class="carrito" title="Carrito">🛒 <span id="cart-count" class="fav-count">0</span></div>
   </div>
 
 </header>
@@ -40,7 +43,7 @@
   <div class="hero-content">  <!--Banner-->
     <h1>Encuentra productos tecnológicos en un solo lugar</h1>
     <p>Explora soluciones digitales, rápidas, seguras y confiables para tus necesidades.</p>
-  <button onclick="document.getElementById('productos').scrollIntoView({behavior: 'smooth'})">Explorar productos</button>
+  <button type="button" onclick="window.location.href='catalogo.html'">Explorar productos</button>
   </div>
 </section>
   <!-- SECCIÓN PRINCIPAL -->
@@ -53,6 +56,7 @@
   <section id="productos"></section>
 
   <script src="js/script.js"></script>
+  <script src="js/nav-auth.js"></script>
   <div id="toast-container"></div>
 
   <footer class="footer">

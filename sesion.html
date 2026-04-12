@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión - NovaTech</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <a href="index.html" class="logo-link"><img src="img/logo.png" alt="NovaTech"></a>
+    </div>
+    <nav class="menu">
+      <a href="index.html">Inicio</a>
+      <a href="catalogo.html">Productos</a>
+      <a href="favoritos.html">Favoritos <span id="fav-count" class="fav-count">0</span></a>
+      <a href="contacto.html">Contacto</a>
+      <a href="quienes-somos.html">¿Quiénes somos?</a>
+    </nav>
+    <div class="buscador">
+      <input type="text" placeholder="Buscar en catálogo..." disabled style="opacity:0.65" title="Usa el catálogo para buscar">
+    </div>
+    <div class="acciones">
+      <div class="acciones-auth" id="acciones-auth"></div>
+      <div class="carrito" title="Carrito">🛒 <span id="cart-count" class="fav-count">0</span></div>
+    </div>
+  </header>
+
+  <main class="auth-main">
+    <h2 class="auth-titulo-pagina" style="text-align:center;margin-top:8px">Acceso a NovaTech</h2>
+    <p class="subtitulo" style="margin-bottom:24px">Inicia sesión o crea una cuenta.</p>
+
+    <div id="auth-sesion-activa" class="auth-sesion-activa" hidden>
+      <p>Ya tienes sesión iniciada como <strong id="auth-sesion-nombre"></strong>.</p>
+      <div class="auth-sesion-btns">
+        <button type="button" class="button" id="btn-auth-ir-inicio">Ir al inicio</button>
+        <button type="button" class="btn-login" id="btn-auth-cerrar-aqui">Cerrar sesión</button>
+      </div>
+    </div>
+
+    <div class="auth-card">
+      <div class="auth-tabs" role="tablist">
+        <button type="button" class="auth-tab auth-tab--active" data-auth-tab="login" role="tab">Iniciar sesión</button>
+        <button type="button" class="auth-tab" data-auth-tab="registro" role="tab">Registrarse</button>
+      </div>
+
+      <div id="auth-panel-login" class="auth-panel" role="tabpanel">
+        <form id="form-login" novalidate>
+          <label for="login-email">Correo electrónico</label>
+          <input id="login-email" name="email" type="email" autocomplete="email" required>
+          <label for="login-password">Contraseña</label>
+          <input id="login-password" name="password" type="password" autocomplete="current-password" required>
+          <button type="submit" class="auth-submit">Entrar</button>
+        </form>
+      </div>
+
+      <div id="auth-panel-registro" class="auth-panel" role="tabpanel" hidden>
+        <form id="form-registro" novalidate>
+          <label for="reg-nombre">Nombre</label>
+          <input id="reg-nombre" name="nombre" type="text" autocomplete="name" required>
+          <label for="reg-email">Correo electrónico</label>
+          <input id="reg-email" name="email" type="email" autocomplete="email" required>
+          <label for="reg-password">Contraseña</label>
+          <input id="reg-password" name="password" type="password" autocomplete="new-password" required minlength="6">
+          <label for="reg-password2">Confirmar contraseña</label>
+          <input id="reg-password2" name="password2" type="password" autocomplete="new-password" required minlength="6">
+          <button type="submit" class="auth-submit">Crear cuenta</button>
+        </form>
+      </div>
+
+      <p id="auth-mensaje" class="auth-mensaje" role="alert" hidden></p>
+    </div>
+
+    <a href="index.html" class="auth-volver">← Volver al inicio</a>
+  </main>
+
+  <div id="toast-container"></div>
+  <script src="js/script.js"></script>
+  <script src="js/nav-auth.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

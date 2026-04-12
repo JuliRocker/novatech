@@ -29,12 +29,51 @@ function updateFavCount() {
   span.textContent = favoritos.length;
 }
 
+function obtenerCarrito() {
+  return JSON.parse(localStorage.getItem('carrito')) || [];
+}
+
+function agregarAlCarrito(producto) {
+  if (!producto || !producto.nombre) return;
+  let items = obtenerCarrito();
+  const idx = items.findIndex(function (i) {
+    return i.nombre === producto.nombre;
+  });
+  if (idx >= 0) {
+    items[idx].cantidad = (items[idx].cantidad || 1) + 1;
+  } else {
+    var copia = Object.assign({}, producto);
+    copia.cantidad = 1;
+    items.push(copia);
+  }
+  localStorage.setItem('carrito', JSON.stringify(items));
+  if (typeof showToast === 'function') showToast('Producto agregado al carrito');
+  updateCartCount();
+}
+
+function updateCartCount() {
+  const el = document.getElementById('cart-count');
+  if (!el) return;
+  const items = obtenerCarrito();
+  var total = items.reduce(function (s, i) {
+    return s + (i.cantidad || 1);
+  }, 0);
+  el.textContent = total;
+}
+
 // --- Carga de productos ---
 fetch('productos.json')
   .then(response => response.json())
   .then(data => {
     productosGlobal = Array.isArray(data) ? data : [];
     mostrarProductos(productosGlobal);
+    if (typeof window.onProductosLoaded === 'function') {
+      try {
+        window.onProductosLoaded(productosGlobal);
+      } catch (e) {
+        console.error(e);
+      }
+    }
     updateFavCount();
   })
   .catch(err => {
@@ -50,7 +89,7 @@ function mostrarProductos(productos) {
 
   productos.forEach(producto => {
     const card = document.createElement('div');
-    card.classList.add('card');
+    card.classList.add('card', 'card--clickable');
 
     const imgSrc = producto.imagen || 'img/placeholder.png';
     const nombreEsc = producto.nombre.replace(/'/g, "\\'");
@@ -79,6 +118,12 @@ function mostrarProductos(productos) {
         <button type="button" onclick="verMas(this)">Ver más</button>
       </div>
     `;
+
+    card.addEventListener('click', function (e) {
+      if (e.target.closest('.card-buttons')) return;
+      window.location.href =
+        'producto-detalle.html?nombre=' + encodeURIComponent(producto.nombre);
+    });
 
     contenedor.appendChild(card);
   });
@@ -115,6 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   updateFavCount();
+  updateCartCount();
 });
 
 // --- Favoritos ---
