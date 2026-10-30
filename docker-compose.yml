@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: novatech-backend
+    ports:
+      - "3000:3000"
+    networks:
+      - novatech-net
+
+  frontend:
+    build: .
+    container_name: novatech-frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+    networks:
+      - novatech-net
+
+networks:
+  novatech-net:
+    driver: bridge
