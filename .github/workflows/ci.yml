@@ -1,0 +1,21 @@
+name: CI Docker Build Novatech 
+
+on: 
+  push: 
+    branches: [ "main", "master" ] 
+  pull\_request: 
+    branches: [ "main", "master" ] 
+  
+jobs: 
+  build: 
+    runs-on: ubuntu-latest 
+    
+    steps: 
+    - name: Descargar código del repositorio 
+      uses: actions/checkout@v4 
+      
+    - name: Validar construcción de la imagen Backend 
+      run: docker build -t novatech-backend:latest ./backend 
+      
+    - name: Validar construcción de la imagen Frontend 
+      run: docker build -t novatech-frontend:latest .
