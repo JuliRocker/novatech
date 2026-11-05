@@ -3,9 +3,9 @@ name: CI Docker Build Novatech
 on: 
   push: 
     branches: [ "main", "master" ] 
-  pull\_request: 
+  pull_request: 
     branches: [ "main", "master" ] 
-  
+      
 jobs: 
   build: 
     runs-on: ubuntu-latest 
